@@ -32,16 +32,28 @@ public class Item {
 	}
 
 	void updateQuality() {
+		decreaseQuality();
+
+		decreaseSellIn();
+
+		if (getSellIn() < 0) {
+			decreaseQuality();
+		}
+	}
+
+	protected void decreaseSellIn() {
+		setSellIn(getSellIn() - 1);
+	}
+
+	private void decreaseQuality() {
 		if (getQuality() > 0) {
 			setQuality(getQuality() - 1);
 		}
+	}
 
-		setSellIn(getSellIn() - 1);
-
-		if (getSellIn() < 0) {
-			if (getQuality() > 0) {
-				setQuality(getQuality() - 1);
-			}
+	protected void increaseQuality() {
+		if (getQuality() < 50) {
+			setQuality(getQuality() + 1);
 		}
 	}
 }
