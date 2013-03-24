@@ -56,4 +56,8 @@ public class Item {
 			setQuality(getQuality() + 1);
 		}
 	}
+
+	protected boolean sellWithin(int days) {
+		return getSellIn() < days;
+	}
 }

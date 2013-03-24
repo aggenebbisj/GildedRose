@@ -10,16 +10,13 @@ public class BackstagePasses extends Item {
 	void updateQuality() {
 		decreaseSellIn();
 		increaseQuality();
-
-		if (getSellIn() < 10) {
+		if (sellWithin(10)) {
 			increaseQuality();
 		}
-
-		if (getSellIn() < 5) {
+		if (sellWithin(5)) {
 			increaseQuality();
 		}
-
-		if (getSellIn() < 0) {
+		if (sellWithin(0)) {
 			setQuality(0);
 		}
 	}
