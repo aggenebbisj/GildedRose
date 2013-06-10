@@ -17,11 +17,11 @@ public class SellIn {
 	}
 
 	public void decrease() {
-		setSellIn(getSellIn() - 1);
+		sellIn--;
 	}
 
 	protected boolean sellWithin(int days) {
-		return getSellIn() < days;
+		return sellIn < days;
 	}
 	
 }

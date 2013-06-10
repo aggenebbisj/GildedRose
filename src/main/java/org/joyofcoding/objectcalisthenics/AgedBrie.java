@@ -7,7 +7,7 @@ public class AgedBrie extends Item {
 	}
 
 	@Override
-	protected void adjustQuality() {
+	protected void updateQuality() {
 		getQuality().increase();
 	}
 }

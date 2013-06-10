@@ -7,23 +7,21 @@ public class BackstagePasses extends Item {
 	}
 	
 	@Override
-	void updateQuality() {
-		getSellIn().decrease();
-		adjustQuality();
+	protected void updateQuality() {
+		getQuality().increase();
+	}
+	
+	@Override
+	protected void accountForExpirationDate() {
 		if (sellWithin(10)) {
-			adjustQuality();
+			updateQuality();
 		}
 		if (sellWithin(5)) {
-			adjustQuality();
+			updateQuality();
 		}
 		if (isExpired()) {
-			setQuality(0);
+			getQuality().dropToZero();
 		}
-	}
-
-	@Override
-	protected void adjustQuality() {
-		getQuality().increase();
 	}
 
 }

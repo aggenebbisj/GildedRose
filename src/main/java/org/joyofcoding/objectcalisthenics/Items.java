@@ -12,7 +12,7 @@ public class Items {
 
 	public void updateQuality() {
 		for (Item item : items) {
-    		item.updateQuality();
+    		item.update();
     	}
 	}
 }

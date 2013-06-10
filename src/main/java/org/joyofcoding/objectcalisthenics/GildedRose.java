@@ -22,7 +22,7 @@ public class GildedRose {
 
     public void updateQuality(List<Item> list) {
     	for (Item item : list) {
-    		item.updateQuality();
+    		item.update();
     	}
     }
 

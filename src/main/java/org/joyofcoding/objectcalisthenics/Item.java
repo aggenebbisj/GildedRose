@@ -1,9 +1,9 @@
 package org.joyofcoding.objectcalisthenics;
 
 public class Item {
-	private String name;
-	private SellIn sellIn;
-	private Quality quality;
+	private final String name;
+	private final SellIn sellIn;
+	private final Quality quality;
 
 	public Item(String name, int sellIn, int quality) {
 		this.name = name;
@@ -17,14 +17,6 @@ public class Item {
 		this.sellIn = sellIn;
 	}
 	
-	public void setSellIn(int sellIn) {
-		this.sellIn.setSellIn(sellIn);
-	}
-
-	public void setQuality(int quality) {
-		this.quality.setQuality(quality);
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -37,18 +29,21 @@ public class Item {
 		return quality;
 	}
 
-	void updateQuality() {
+	public void update() {
 		sellIn.decrease();
-		adjustQuality();
-		if (isExpired()) {
-			adjustQuality();
-		}
+		updateQuality();
+		accountForExpirationDate();
 	}
 
-	protected void adjustQuality() {
+	protected void updateQuality() {
 		quality.decrease();
 	}
-
+	
+	protected void accountForExpirationDate() {
+		if (isExpired()) {
+			updateQuality();
+		}
+	}
 	
 	protected boolean isExpired() {
 		return sellWithin(0);

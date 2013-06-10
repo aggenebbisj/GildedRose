@@ -21,14 +21,18 @@ public class Quality {
 
 	void decrease() {
 		if (getQuality() > MIN_QUALITY) {
-			setQuality(getQuality() - 1);
+			quality--;
 		}
 	}
 
 	protected void increase() {
 		if (getQuality() < MAX_QUALITY) {
-			setQuality(getQuality() + 1);
+			quality++;
 		}
+	}
+
+	public void dropToZero() {
+		quality = 0;
 	}
 	
 }

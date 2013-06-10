@@ -7,7 +7,8 @@ public class Sulfuras extends Item {
 	}
 
 	@Override
-	void updateQuality() {
+	public
+	void update() {
 		// Sulfuras does not decrease in value and never has to be sold.
 	}
 
