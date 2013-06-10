@@ -11,6 +11,12 @@ public class Item {
 		this.sellIn = new SellIn(sellIn);
 	}
 
+	protected Item(String name, SellIn sellIn, Quality quality) {
+		this.name = name;
+		this.quality = quality;
+		this.sellIn = sellIn;
+	}
+	
 	public void setSellIn(int sellIn) {
 		this.sellIn.setSellIn(sellIn);
 	}
@@ -32,11 +38,9 @@ public class Item {
 	}
 
 	void updateQuality() {
-		quality.decrease();
-
 		sellIn.decrease();
-
-		if (sellIn.getSellIn() < 0) {
+		quality.decrease();
+		if (sellWithin(0)) {
 			quality.decrease();
 		}
 	}
