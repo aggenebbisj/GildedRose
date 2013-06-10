@@ -3,11 +3,11 @@ package org.joyofcoding.objectcalisthenics;
 public class Item {
 	private String name;
 	private int sellIn;
-	private int quality;
+	private Quality quality;
 
 	public Item(String name, int sellIn, int quality) {
 		this.name = name;
-		this.quality = quality;
+		this.quality = new Quality(quality);
 		this.sellIn = sellIn;
 	}
 
@@ -16,7 +16,7 @@ public class Item {
 	}
 
 	public void setQuality(int quality) {
-		this.quality = quality;
+		this.quality.setQuality(quality);
 	}
 
 	public String getName() {
@@ -27,34 +27,22 @@ public class Item {
 		return sellIn;
 	}
 
-	public int getQuality() {
-		return quality;
+	public Quality getQuality() {
+		return this.quality;
 	}
 
 	void updateQuality() {
-		decreaseQuality();
+		quality.decrease();
 
 		decreaseSellIn();
 
 		if (getSellIn() < 0) {
-			decreaseQuality();
+			quality.decrease();
 		}
 	}
 
 	protected void decreaseSellIn() {
 		setSellIn(getSellIn() - 1);
-	}
-
-	private void decreaseQuality() {
-		if (getQuality() > 0) {
-			setQuality(getQuality() - 1);
-		}
-	}
-
-	protected void increaseQuality() {
-		if (getQuality() < 50) {
-			setQuality(getQuality() + 1);
-		}
 	}
 
 	protected boolean sellWithin(int days) {

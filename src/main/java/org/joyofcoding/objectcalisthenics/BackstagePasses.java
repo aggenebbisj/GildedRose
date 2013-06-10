@@ -9,12 +9,12 @@ public class BackstagePasses extends Item {
 	@Override
 	void updateQuality() {
 		decreaseSellIn();
-		increaseQuality();
+		getQuality().increase();
 		if (sellWithin(10)) {
-			increaseQuality();
+			getQuality().increase();
 		}
 		if (sellWithin(5)) {
-			increaseQuality();
+			getQuality().increase();
 		}
 		if (sellWithin(0)) {
 			setQuality(0);

@@ -2,6 +2,9 @@ package org.joyofcoding.objectcalisthenics.assertions;
 
 import static org.fest.assertions.api.Assertions.extractProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.fest.assertions.api.AbstractIterableAssert;
 import org.fest.assertions.api.Assertions;
 import org.joyofcoding.objectcalisthenics.Item;
@@ -34,8 +37,10 @@ public class ItemsAssert extends
 	public ItemsAssert containsOnlyItemQualities(Integer... qualities) {
 		isNotNull();
 		
-		Iterable<Integer> actualItemQualities = extractProperty("quality", Integer.class)
-				.from(actual);
+		List<Integer> actualItemQualities = new ArrayList<>();
+		for (Item item : actual) {
+			actualItemQualities.add(Integer.valueOf(item.getQuality().getQuality()));
+		}
         Assertions.assertThat(actualItemQualities).containsOnly(qualities);
         
 		return this;
