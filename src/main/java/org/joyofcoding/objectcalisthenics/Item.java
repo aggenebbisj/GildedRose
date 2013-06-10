@@ -40,12 +40,16 @@ public class Item {
 	void updateQuality() {
 		sellIn.decrease();
 		quality.decrease();
-		if (sellWithin(0)) {
+		if (isExpired()) {
 			quality.decrease();
 		}
 	}
 
+	protected boolean isExpired() {
+		return sellWithin(0);
+	}
+
 	protected boolean sellWithin(int days) {
-		return sellIn.getSellIn() < days;
+		return sellIn.sellWithin(days);
 	}
 }

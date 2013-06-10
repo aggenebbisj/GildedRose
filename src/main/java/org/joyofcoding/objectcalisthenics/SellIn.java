@@ -19,5 +19,9 @@ public class SellIn {
 	public void decrease() {
 		setSellIn(getSellIn() - 1);
 	}
+
+	protected boolean sellWithin(int days) {
+		return getSellIn() < days;
+	}
 	
 }

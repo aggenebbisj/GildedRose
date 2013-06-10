@@ -16,7 +16,7 @@ public class BackstagePasses extends Item {
 		if (sellWithin(5)) {
 			getQuality().increase();
 		}
-		if (sellWithin(0)) {
+		if (isExpired()) {
 			setQuality(0);
 		}
 	}

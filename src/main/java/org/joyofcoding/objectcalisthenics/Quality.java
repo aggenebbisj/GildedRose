@@ -2,6 +2,9 @@ package org.joyofcoding.objectcalisthenics;
 
 public class Quality {
 
+	private static final int MIN_QUALITY = 0;
+	private static final int MAX_QUALITY = 50;
+	
 	private int quality;
 
 	public Quality(int quality) {
@@ -17,13 +20,13 @@ public class Quality {
 	}
 
 	void decrease() {
-		if (getQuality() > 0) {
+		if (getQuality() > MIN_QUALITY) {
 			setQuality(getQuality() - 1);
 		}
 	}
 
 	protected void increase() {
-		if (getQuality() < 50) {
+		if (getQuality() < MAX_QUALITY) {
 			setQuality(getQuality() + 1);
 		}
 	}
