@@ -16,10 +16,6 @@ public class SellIn {
 		sellIn--;
 	}
 
-	public boolean sellWithin(int days) {
-		return sellIn < days;
-	}
-
 	public int daysLeft() {
 		return sellIn;
 	}
