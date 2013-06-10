@@ -6,9 +6,7 @@ public class Item {
 	private final Quality quality;
 
 	public Item(String name, int sellIn, int quality) {
-		this.name = name;
-		this.quality = new Quality(quality);
-		this.sellIn = new SellIn(sellIn);
+		this(name, new SellIn(sellIn), new Quality(quality));
 	}
 
 	protected Item(String name, SellIn sellIn, Quality quality) {
