@@ -15,17 +15,13 @@ public class Quality {
 		return quality;
 	}
 
-	public void setQuality(int quality) {
-		this.quality = quality;
-	}
-
-	void decrease() {
+	public void decrease() {
 		if (getQuality() > MIN_QUALITY) {
 			quality--;
 		}
 	}
 
-	protected void increase() {
+	public void increase() {
 		if (getQuality() < MAX_QUALITY) {
 			quality++;
 		}

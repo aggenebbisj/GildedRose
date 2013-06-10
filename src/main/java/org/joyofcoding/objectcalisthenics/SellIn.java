@@ -12,15 +12,11 @@ public class SellIn {
 		return sellIn;
 	}
 
-	public void setSellIn(int sellIn) {
-		this.sellIn = sellIn;
-	}
-
 	public void decrease() {
 		sellIn--;
 	}
 
-	protected boolean sellWithin(int days) {
+	public boolean sellWithin(int days) {
 		return sellIn < days;
 	}
 	

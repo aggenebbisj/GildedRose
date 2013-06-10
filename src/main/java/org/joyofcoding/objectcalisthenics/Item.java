@@ -43,11 +43,11 @@ public class Item {
 		}
 	}
 	
-	protected boolean isExpired() {
+	public boolean isExpired() {
 		return sellWithin(0);
 	}
 
-	protected boolean sellWithin(int days) {
+	public boolean sellWithin(int days) {
 		return sellIn.sellWithin(days);
 	}
 }
