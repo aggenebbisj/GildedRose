@@ -39,12 +39,17 @@ public class Item {
 
 	void updateQuality() {
 		sellIn.decrease();
-		quality.decrease();
+		adjustQuality();
 		if (isExpired()) {
-			quality.decrease();
+			adjustQuality();
 		}
 	}
 
+	protected void adjustQuality() {
+		quality.decrease();
+	}
+
+	
 	protected boolean isExpired() {
 		return sellWithin(0);
 	}
