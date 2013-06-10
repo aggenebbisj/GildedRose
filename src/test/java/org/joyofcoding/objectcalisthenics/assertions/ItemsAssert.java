@@ -39,7 +39,7 @@ public class ItemsAssert extends
 		
 		List<Integer> actualItemQualities = new ArrayList<>();
 		for (Item item : actual) {
-			actualItemQualities.add(Integer.valueOf(item.getQuality().getQuality()));
+			actualItemQualities.add(item.getQuality().getQuality());
 		}
         Assertions.assertThat(actualItemQualities).containsOnly(qualities);
         
@@ -49,8 +49,10 @@ public class ItemsAssert extends
 	public ItemsAssert containsOnlyItemSellIns(Integer... sellIns) {
 		isNotNull();
 		
-		Iterable<Integer> actualItemSellIns = extractProperty("sellIn", Integer.class)
-				.from(actual);
+		List<Integer> actualItemSellIns = new ArrayList<>();
+		for (Item item : actual) {
+			actualItemSellIns.add(item.getSellIn().getSellIn());
+		}
 		Assertions.assertThat(actualItemSellIns).containsOnly(sellIns);
 		
 		return this;

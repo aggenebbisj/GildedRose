@@ -2,17 +2,17 @@ package org.joyofcoding.objectcalisthenics;
 
 public class Item {
 	private String name;
-	private int sellIn;
+	private SellIn sellIn;
 	private Quality quality;
 
 	public Item(String name, int sellIn, int quality) {
 		this.name = name;
 		this.quality = new Quality(quality);
-		this.sellIn = sellIn;
+		this.sellIn = new SellIn(sellIn);
 	}
 
 	public void setSellIn(int sellIn) {
-		this.sellIn = sellIn;
+		this.sellIn.setSellIn(sellIn);
 	}
 
 	public void setQuality(int quality) {
@@ -23,29 +23,25 @@ public class Item {
 		return name;
 	}
 
-	public int getSellIn() {
+	public SellIn getSellIn() {
 		return sellIn;
 	}
 
 	public Quality getQuality() {
-		return this.quality;
+		return quality;
 	}
 
 	void updateQuality() {
 		quality.decrease();
 
-		decreaseSellIn();
+		sellIn.decrease();
 
-		if (getSellIn() < 0) {
+		if (sellIn.getSellIn() < 0) {
 			quality.decrease();
 		}
 	}
 
-	protected void decreaseSellIn() {
-		setSellIn(getSellIn() - 1);
-	}
-
 	protected boolean sellWithin(int days) {
-		return getSellIn() < days;
+		return sellIn.getSellIn() < days;
 	}
 }
