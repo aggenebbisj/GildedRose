@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GildedRose {
+	
 	public static void main(String[] args) {
-		GildedRose gildedRose = new GildedRose();
-        gildedRose.updateQuality(gildedRose.makeItems());
+		updateQuality(makeItems());
 	}
 
-    public List<Item> makeItems() {
+    public static List<Item> makeItems() {
         List<Item> items = new ArrayList<>();
 		items.add(new Item("+5 Dexterity Vest", 10, 20));
 		items.add(new AgedBrie(2, 0));
@@ -20,7 +20,7 @@ public class GildedRose {
         return items;
     }
 
-    public void updateQuality(List<Item> list) {
+    public static void updateQuality(List<Item> list) {
     	for (Item item : list) {
     		item.update();
     	}

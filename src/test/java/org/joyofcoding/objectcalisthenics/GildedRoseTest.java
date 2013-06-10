@@ -11,14 +11,12 @@ import org.junit.Test;
 public class GildedRoseTest {
     private static final int MAX_BACKSTAGE_SELLIN = 30;
     private static final int MAX_QUALITY = 50;
-    private GildedRose gildedRose;
     private List<Item> items;
     private Random rand = new Random(3456789);
 
     @Before
     public void setup() {
-        gildedRose = new GildedRose();
-        items = gildedRose.makeItems();
+        items = GildedRose.makeItems();
     }
     
     @Test public void 
@@ -83,7 +81,7 @@ public class GildedRoseTest {
 
     private void repeatUpdateQuality(int times) {
         for (int i = 0; i < times; i++) {
-            gildedRose.updateQuality(items);
+            GildedRose.updateQuality(items);
         }
     }
 
