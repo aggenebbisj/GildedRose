@@ -1,4 +1,4 @@
 GildedRose
 ==========
 
-Gilded Rose Kata
+Gilded Rose Kata Test
